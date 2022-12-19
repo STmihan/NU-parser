@@ -81,9 +81,9 @@ class NU:
         html = self.downloader.get_novel_html(title)
         return html
 
-    def get_novel_chapters(self, novel):
+    def get_novel_chapters(self, novel, force_update=False):
         novel_id = self.get_novel_id(novel)
-        html = self.downloader.get_novel_chapter_html(novel, novel_id)
+        html = self.downloader.get_novel_chapter_html(novel, novel_id, force=force_update)
         return self.parser.parse_novel_chapters_page(html, novel, novel_id)
 
     def get_novel_id(self, novel):
